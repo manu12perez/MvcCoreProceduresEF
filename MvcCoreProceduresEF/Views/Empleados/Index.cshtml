@@ -6,10 +6,11 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@* <p>
+    <a asp-action="Create"
+       class="btn btn-outline-success">Create New</a>
+</p> *@
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -55,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Localidad)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
             </td>
         </tr>
 }

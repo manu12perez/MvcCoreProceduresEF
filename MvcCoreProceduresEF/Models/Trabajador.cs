@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcCoreProceduresEF.Models
 {
-    [Table("V_EMPLEADOS_DEPARTAMENTOS")]
-    public class VistaEmpleado
+    [Table("V_WORKERS")]
+    public class Trabajador
     {
         [Key]
-        [Column("ID")]
-        public int Id { get; set; }
+        [Column("IDWORKER")]
+        public int IdTrabajador { get; set; }
 
         [Column("APELLIDO")]
         public string Apellido { get; set; }
@@ -18,11 +18,5 @@ namespace MvcCoreProceduresEF.Models
 
         [Column("SALARIO")]
         public int Salario { get; set; }
-
-        [Column("DEPARTAMENTO")]
-        public string Departamento { get; set; }
-
-        [Column("LOCALIDAD")]
-        public string Localidad { get; set; }
     }
 }
