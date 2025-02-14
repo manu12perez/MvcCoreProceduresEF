@@ -6,39 +6,47 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using MvcCoreProceduresEF.Data;
 using MvcCoreProceduresEF.Models;
 
-#region Procedures
+#region PROCEDIMIENTOS ALMACENADOS
 
-//create procedure SP_TODOS_ENFERMOS 
-//as 
-//	select * from ENFERMO
-//go
+/*
 
-//create procedure SP_FIND_ENFERMO (@inscripcion nvarchar(50))
-//as
-//	select * from ENFERMO where INSCRIPCION=@inscripcion
-//go
+create procedure SP_TODOS_ENFERMOS
+as
+	select * from ENFERMO
+go
 
-//create procedure SP_DELETE_ENFERMO (@inscripcion nvarchar(50))
-//as
-//	delete from ENFERMO where INSCRIPCION=@inscripcion
-//go
+alter procedure SP_FIND_ENFERMO
+(@inscripcion nvarchar(50))
+as
+	select * from ENFERMO where INSCRIPCION = @inscripcion
+go
 
-//create procedure SP_INSERT_ENFERMO
-//(@apellido nvarchar(50), @direccion nvarchar(50), @fechanac datetime, @genero nvarchar(50))
-//as
-//	declare @id nvarchar(50)
-//	set @id = (select MAX(inscripcion + 1) from ENFERMO)
-//	insert into ENFERMO values (@id, @apellido, @direccion, @fechanac, @genero,'123456789')
-//go
+alter procedure SP_DELETE_ENFERMO
+(@inscripcion nvarchar(50))
+as
+	delete from ENFERMO where INSCRIPCION = @inscripcion
+go
+
+alter procedure SP_INSERT_ENFERMO
+(@apellido nvarchar(50), @direccion nvarchar(50), @fechanac datetime, @genero nvarchar(1))
+as
+	declare @maxinscripcion int
+	select @maxinscripcion = cast(max(inscripcion) as int) + 1 
+	from ENFERMO
+	insert into ENFERMO values
+	(@maxinscripcion, @apellido, @direccion, @fechanac, @genero, '1234')
+go
+ 
+*/
 #endregion
 
 namespace MvcCoreProceduresEF.Repositories
 {
     public class RepositoryEnfermos
     {
-        private EnfermosContext context;
+        private HospitalContext context;
 
-        public RepositoryEnfermos (EnfermosContext context)
+        public RepositoryEnfermos (HospitalContext context)
         {
             this.context = context;
         }

@@ -1,17 +1,21 @@
 ﻿
-#region procedures
-//create procedure SP_GET_ESPECIALIDADES
-//as
-//	select distinct(especialidad) from DOCTOR
-//go
+#region PROCEDIMIENTOS ALMACENADOS
+/*
 
-//create procedure SP_INCREMENTO_SALARIAL_ESPECIALIDAD
-//(@especialidad nvarchar(50), @incremento int)
-//as
-//	update doctor set SALARIO=SALARIO + @incremento where ESPECIALIDAD=@especialidad
+alter procedure SP_GET_ESPECIALIDADES
+as
+	select distinct(especialidad) from DOCTOR
+go
 
-//	select * from DOCTOR where ESPECIALIDAD=@especialidad
-//go
+create procedure SP_INCREMENTO_SALARIAL_ESPECIALIDAD
+(@especialidad nvarchar(50), @incremento int)
+as
+	update doctor set SALARIO=SALARIO + @incremento where ESPECIALIDAD=@especialidad
+
+	select * from DOCTOR where ESPECIALIDAD=@especialidad
+go
+ 
+*/
 #endregion
 
 using Microsoft.EntityFrameworkCore;
@@ -24,9 +28,9 @@ namespace MvcCoreProceduresEF.Repositories
 {
     public class RepositoryDoctores
     {
-        private EnfermosContext context;
+        private HospitalContext context;
 
-        public RepositoryDoctores(EnfermosContext context)
+        public RepositoryDoctores(HospitalContext context)
         {
             this.context = context;
         }
